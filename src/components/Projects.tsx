@@ -151,6 +151,16 @@ const TechBadge = ({ label, accent }: { label: string; accent: string }) => (
   <span
     className="inline-block px-3 py-1 rounded-full text-[11px] font-medium border tracking-wide"
     style={{ borderColor: `${accent}40`, color: accent, backgroundColor: `${accent}10` }}
+  >
+    {label}
+  </span>
+);
+
+/* ─────────────────────────────────────────────
+   Featured Project Card (Astro AI)
+───────────────────────────────────────────── */
+const FeaturedCard = ({ project }: { project: typeof featuredProject }) => {
+  return (
 
 const Projects = () => { return <div>Projects</div>; };
 export default Projects;
