@@ -98,6 +98,23 @@ const otherProjects = [
     github: 'https://lnkd.in/gXyGBmPb',
     demo: 'https://lnkd.in/gx3TupgE',
     accentColor: '#f59e0b',
+    glowColor: 'rgba(245, 158, 11, 0.12)',
+    achievement: { label: '🏆 Devthon 3.0 Semi-Finalist', sub: 'University of Moratuwa · Top 150 Teams' },
+    features: [
+      { icon: <FileText size={16} />, title: 'AI Document Processing', desc: 'Smart data extraction from physical cheques and financial documents, eliminating manual data entry for SME owners.' },
+      { icon: <Shield size={16} />, title: 'Real-Time Governance Controls', desc: 'Configurable spending rules and approval workflows enforce financial governance policies automatically.' },
+      { icon: <BarChart3 size={16} />, title: 'Intelligent Review & Anomaly Detection', desc: 'Automated bank reconciliation with an anomaly detection interface that flags discrepancies before they become issues.' },
+      { icon: <Lock size={16} />, title: 'Audit-Ready Traceability', desc: 'Secure, immutable financial trails with full audit logging — designed for regulatory confidence from day one.' },
+    ],
+    techStack: ['Next.js 14', 'Tailwind CSS', 'Framer Motion', 'Recharts', 'Prisma ORM', 'PostgreSQL'],
+  },
+  {
+    id: 'medistore',
+    category: 'Healthcare · Full-Stack · OOAD',
+    title: 'MediStore',
+    tagline: 'A full-stack pharmacy inventory and operations platform — the group project for the Object Oriented Analysis & Design module (Y2S1, SLIIT).',
+    github: null,
+    accentColor: '#10b981',
   <span
     className="inline-block px-3 py-1 rounded-full text-[11px] font-medium border tracking-wide"
     style={{ borderColor: `${accent}40`, color: accent, backgroundColor: `${accent}10` }}
