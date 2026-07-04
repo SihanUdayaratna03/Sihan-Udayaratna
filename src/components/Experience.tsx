@@ -31,7 +31,7 @@ const Experience = () => {
       details: []
     },
     {
-      title: "Member",
+      title: "Committee Member",
       company: "MS Club of SLIIT",
       type: "2026 - present",
       icon: <Users className="text-primary" size={24} />,
