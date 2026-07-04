@@ -360,6 +360,66 @@ const ProjectCard = ({ project, index }: { project: typeof otherProjects[0]; ind
                 href={project.demo}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="flex items-center gap-1.5 px-4 py-2 rounded-full text-[11px] uppercase tracking-wider transition-all duration-300"
+                style={{ backgroundColor: `${project.accentColor}20`, color: project.accentColor, border: `1px solid ${project.accentColor}40` }}
+              >
+                <ExternalLink size={12} /> Live Demo
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
 
-const Projects = () => { return <div>Projects</div>; };
+/* ─────────────────────────────────────────────
+   Main Section
+───────────────────────────────────────────── */
+const Projects = () => {
+  return (
+    <section id="projects" className="py-32 relative">
+      {/* Ambient background glow */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full blur-[160px] opacity-10"
+          style={{ background: 'radial-gradient(circle, #7b2cbf 0%, #4cc9f0 100%)' }} />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <span className="inline-block text-[11px] uppercase tracking-[0.3em] font-semibold text-gray-500 mb-4">
+            Engineering Portfolio
+          </span>
+          <h2 className="text-3xl md:text-4xl font-display font-light mb-4 tracking-widest uppercase text-white">
+            Projects & Achievements
+          </h2>
+          <div className="w-16 h-[1px] bg-gradient-to-r from-transparent via-gray-500 to-transparent mx-auto mb-5" />
+          <p className="text-gray-500 max-w-2xl mx-auto text-sm font-light leading-relaxed">
+            A selection of projects spanning Agentic AI, compiler design, financial technology, healthcare systems,
+            and full-stack engineering — each built to solve a real problem at a professional standard.
+          </p>
+        </motion.div>
+
+        {/* Featured Project */}
+        <FeaturedCard project={featuredProject} />
+
+        {/* Other Projects Grid */}
+        <div className="grid md:grid-cols-2 gap-6">
+          {otherProjects.map((project, idx) => (
+            <ProjectCard key={project.id} project={project} index={idx} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 export default Projects;
+
