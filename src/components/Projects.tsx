@@ -80,6 +80,24 @@ const otherProjects = [
     tagline: 'A custom-built Domain Specific Language for human-readable task scheduling and workflow automation, with a complete compiler pipeline.',
     github: 'https://lnkd.in/gFTR2iqJ',
     accentColor: '#4cc9f0',
+    glowColor: 'rgba(76, 201, 240, 0.12)',
+    achievement: null,
+    features: [
+      { icon: <ScrollText size={16} />, title: 'Formal Language Grammar', desc: 'Language grammar designed from scratch using BNF/EBNF notation, covering scheduling syntax, dependency declarations, and conditional execution rules.' },
+      { icon: <Code2 size={16} />, title: 'Full Compiler Pipeline', desc: 'Complete implementation of lexical analysis (Flex/Lex) and syntax parsing (Bison/Yacc), producing a working parse tree and execution simulation.' },
+      { icon: <Activity size={16} />, title: 'Rich Scheduling Features', desc: 'Supports daily/weekly/time-specific scheduling, task dependencies, conditional execution, workflow automation, and comprehensive error detection.' },
+      { icon: <GitBranch size={16} />, title: 'Build Automation', desc: 'Makefile-driven build system with WSL + VS Code development environment and full Git version control.' },
+    ],
+    techStack: ['C', 'Flex / Lex', 'Bison / Yacc', 'Makefile', 'WSL', 'Git & GitHub'],
+  },
+  {
+    id: 'onyx',
+    category: 'FinTech · AI · Governance',
+    title: 'OnYx',
+    tagline: 'Smart Accounting & Governance — an AI-powered financial platform solving the manual cheque processing and ledger pain points faced by Sri Lankan SMEs.',
+    github: 'https://lnkd.in/gXyGBmPb',
+    demo: 'https://lnkd.in/gx3TupgE',
+    accentColor: '#f59e0b',
   <span
     className="inline-block px-3 py-1 rounded-full text-[11px] font-medium border tracking-wide"
     style={{ borderColor: `${accent}40`, color: accent, backgroundColor: `${accent}10` }}
