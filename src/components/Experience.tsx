@@ -1,5 +1,34 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase, Users } from 'lucide-react';
+
+const cardStyle: React.CSSProperties = {
+  background: 'rgba(255, 255, 255, 0.03)',
+  border: '1px solid rgba(255, 255, 255, 0.08)',
+  borderRadius: '1.25rem',
+  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.45), 0 1px 0 rgba(255,255,255,0.06) inset',
+  backdropFilter: 'blur(12px)',
+  WebkitBackdropFilter: 'blur(12px)',
+  transition: 'box-shadow 0.3s ease, border-color 0.3s ease',
+};
+
+const cardHoverStyle: React.CSSProperties = {
+  boxShadow: '0 12px 48px rgba(123, 44, 191, 0.18), 0 1px 0 rgba(255,255,255,0.09) inset',
+  borderColor: 'rgba(123, 44, 191, 0.3)',
+};
+
+const HoverCard = ({ children, style }: { children: React.ReactNode; style?: React.CSSProperties }) => {
+  const [hovered, setHovered] = React.useState(false);
+  return (
+    <div
+      style={{ ...cardStyle, ...(hovered ? cardHoverStyle : {}), ...style }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      {children}
+    </div>
+  );
+};
 
 const Experience = () => {
   const experiences = [
