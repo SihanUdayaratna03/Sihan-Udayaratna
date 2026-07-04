@@ -115,6 +115,23 @@ const otherProjects = [
     tagline: 'A full-stack pharmacy inventory and operations platform — the group project for the Object Oriented Analysis & Design module (Y2S1, SLIIT).',
     github: null,
     accentColor: '#10b981',
+    glowColor: 'rgba(16, 185, 129, 0.12)',
+    achievement: null,
+    features: [
+      { icon: <Layers size={16} />, title: 'Role-Based Access Control', desc: 'Three-tier RBAC system (Admin / Pharmacist / Staff) with granular permission management and secure JWT + BCrypt authentication.' },
+      { icon: <Package size={16} />, title: 'Inventory & Batch Management', desc: 'Full lifecycle tracking across categories, cost/pricing, stock in/out, minimum stock levels, expiry dates, and reorder support with vendor tracking.' },
+      { icon: <Database size={16} />, title: 'Sales, Receipts & Refunds', desc: 'Itemized order management with discounts, receipt generation, line-item refund/return flows, and prescription RX entry with dispense tracking.' },
+      { icon: <Activity size={16} />, title: 'Alerts, Reports & CI/CD', desc: 'Scheduled email alerts for low stock and near-expiry. On-demand PDF/CSV reports. GitHub Actions CI, Docker Compose, Swagger/OpenAPI documentation.' },
+    ],
+    techStack: ['React', 'Java Spring Boot', 'MySQL', 'JWT', 'Docker', 'GitHub Actions', 'Swagger/OpenAPI'],
+  },
+  {
+    id: 'pill-dispenser',
+    category: 'IoT · Healthcare · Embedded',
+    title: 'Smart Pill Dispenser',
+    tagline: 'An intelligent automated medication management system integrating smart dispensing mechanisms, real-time tracking, and automated reminders to ensure timely and accurate medication intake.',
+    github: null,
+    accentColor: '#ec4899',
   <span
     className="inline-block px-3 py-1 rounded-full text-[11px] font-medium border tracking-wide"
     style={{ borderColor: `${accent}40`, color: accent, backgroundColor: `${accent}10` }}
