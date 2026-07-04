@@ -205,6 +205,23 @@ const FeaturedCard = ({ project }: { project: typeof featuredProject }) => {
         </div>
 
         {/* Features grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+          {project.features.map((f, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="bg-white/[0.03] border border-white/6 rounded-2xl p-5 hover:border-white/12 hover:bg-white/[0.05] transition-all duration-300"
+            >
+              <div className="flex items-center gap-2 mb-2" style={{ color: project.accentColor }}>
+                {f.icon}
+                <span className="text-xs font-semibold uppercase tracking-wider text-white">{f.title}</span>
+              </div>
+              <p className="text-gray-500 text-xs leading-relaxed font-light">{f.desc}</p>
+            </motion.div>
+          ))}
     </motion.div>
   );
 };
