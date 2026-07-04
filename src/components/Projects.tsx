@@ -132,6 +132,22 @@ const otherProjects = [
     tagline: 'An intelligent automated medication management system integrating smart dispensing mechanisms, real-time tracking, and automated reminders to ensure timely and accurate medication intake.',
     github: null,
     accentColor: '#ec4899',
+    glowColor: 'rgba(236, 72, 153, 0.12)',
+    achievement: null,
+    features: [
+      { icon: <HeartPulse size={16} />, title: 'Smart Dispensing Mechanism', desc: 'Automated dispensing hardware designed to release the correct medication at the correct time, reducing human error in medication management.' },
+      { icon: <Activity size={16} />, title: 'Real-Time Tracking', desc: 'Live monitoring of dispensing events and medication adherence, providing patients and caregivers with up-to-date intake records.' },
+      { icon: <Cpu size={16} />, title: 'Automated Reminders', desc: 'Proactive notification system ensuring patients never miss a dose, with customizable alert schedules tied to prescription timing.' },
+      { icon: <Bot size={16} />, title: 'Real-World Healthcare Impact', desc: 'Applied technical skills to solve a genuine healthcare challenge, bridging embedded systems with software to create a patient-first solution.' },
+    ],
+    techStack: ['Embedded Systems', 'IoT', 'Real-Time Monitoring', 'Automated Notifications'],
+  },
+];
+
+/* ─────────────────────────────────────────────
+   Tech Badge
+───────────────────────────────────────────── */
+const TechBadge = ({ label, accent }: { label: string; accent: string }) => (
   <span
     className="inline-block px-3 py-1 rounded-full text-[11px] font-medium border tracking-wide"
     style={{ borderColor: `${accent}40`, color: accent, backgroundColor: `${accent}10` }}
