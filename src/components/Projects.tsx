@@ -222,9 +222,19 @@ const FeaturedCard = ({ project }: { project: typeof featuredProject }) => {
               <p className="text-gray-500 text-xs leading-relaxed font-light">{f.desc}</p>
             </motion.div>
           ))}
+        </div>
+
+        {/* Tech Stack */}
+        <div>
+          <p className="text-[10px] uppercase tracking-[0.25em] text-gray-600 mb-3 font-semibold">Tech Stack</p>
+          <div className="flex flex-wrap gap-2">
+            {project.techStack.map((t) => (
+              <TechBadge key={t} label={t} accent={project.accentColor} />
+            ))}
+          </div>
+        </div>
+      </div>
     </motion.div>
-  );
-};
 
 const Projects = () => { return <div>Projects</div>; };
 export default Projects;
