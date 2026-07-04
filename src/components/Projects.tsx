@@ -235,6 +235,55 @@ const FeaturedCard = ({ project }: { project: typeof featuredProject }) => {
         </div>
       </div>
     </motion.div>
+  );
+};
+
+/* ─────────────────────────────────────────────
+   Standard Project Card
+───────────────────────────────────────────── */
+const ProjectCard = ({ project, index }: { project: typeof otherProjects[0]; index: number }) => {
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 35 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      className="relative rounded-2xl overflow-hidden border border-white/6 bg-[#080808] group hover:border-white/12 transition-all duration-500"
+      style={{ boxShadow: expanded ? `0 0 40px ${project.glowColor}` : 'none' }}
+    >
+      {/* Top accent line */}
+      <div className="absolute top-0 left-0 right-0 h-[1.5px]"
+        style={{ background: `linear-gradient(90deg, transparent, ${project.accentColor}, transparent)`, opacity: expanded ? 1 : 0.5 }} />
+
+      {/* Glow blob */}
+      <div className="absolute top-0 right-0 w-80 h-80 rounded-full blur-[100px] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+        style={{ background: project.glowColor, transform: 'translate(30%, -30%)' }} />
+
+      <div className="relative z-10 p-8">
+        {/* Achievement Badge */}
+        {project.achievement && (
+          <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full text-[11px] font-semibold tracking-wide"
+            style={{ backgroundColor: 'rgba(245,158,11,0.1)', border: '1px solid rgba(245,158,11,0.3)', color: '#f59e0b' }}>
+            <Trophy size={12} />
+            <span>{project.achievement.label}</span>
+            <span className="text-[10px] opacity-70">— {project.achievement.sub}</span>
+          </div>
+        )}
+
+        {/* Category */}
+        <span className="inline-block text-[10px] uppercase tracking-[0.2em] font-semibold mb-3 px-2.5 py-1 rounded-full border"
+          style={{ color: project.accentColor, borderColor: `${project.accentColor}35`, backgroundColor: `${project.accentColor}08` }}>
+          {project.category}
+        </span>
+
+        {/* Title & Tagline */}
+        <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-2 tracking-wide">
+          {project.title}
+    </motion.div>
+  );
+};
 
 const Projects = () => { return <div>Projects</div>; };
 export default Projects;
