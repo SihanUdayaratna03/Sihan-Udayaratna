@@ -161,6 +161,53 @@ const TechBadge = ({ label, accent }: { label: string; accent: string }) => (
 ───────────────────────────────────────────── */
 const FeaturedCard = ({ project }: { project: typeof featuredProject }) => {
   return (
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7 }}
+      className="relative rounded-3xl overflow-hidden border border-white/8 bg-[#080808] mb-10 group"
+      style={{ boxShadow: `0 0 60px ${project.glowColor}` }}
+    >
+      {/* Top accent line */}
+      <div className="absolute top-0 left-0 right-0 h-[2px] rounded-t-3xl"
+        style={{ background: `linear-gradient(90deg, transparent, ${project.accentColor}, transparent)` }} />
+
+      {/* Glow blob */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[120px] pointer-events-none"
+        style={{ background: project.glowColor, transform: 'translate(30%, -30%)' }} />
+
+      <div className="relative z-10 p-10 md:p-14">
+        {/* Header row */}
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-10">
+          <div className="flex-1">
+            <span className="inline-block text-[11px] uppercase tracking-[0.2em] font-semibold mb-4 px-3 py-1 rounded-full border"
+              style={{ color: project.accentColor, borderColor: `${project.accentColor}40`, backgroundColor: `${project.accentColor}10` }}>
+              Featured Project · {project.category}
+            </span>
+            <h3 className="text-4xl md:text-5xl font-display font-bold text-white mb-3 tracking-wide">
+              {project.title}
+            </h3>
+            <p className="text-gray-400 text-sm md:text-base leading-relaxed max-w-2xl font-light">
+              {project.tagline}
+            </p>
+          </div>
+          <div className="flex gap-3 flex-shrink-0">
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/15 text-white text-xs uppercase tracking-wider hover:border-white/40 hover:bg-white/5 transition-all duration-300"
+            >
+              <GitFork size={14} /> Source Code
+            </a>
+          </div>
+        </div>
+
+        {/* Features grid */}
+    </motion.div>
+  );
+};
 
 const Projects = () => { return <div>Projects</div>; };
 export default Projects;
