@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { BookOpen, Award, GraduationCap } from 'lucide-react';
 
 const About = () => {
   const education = [
