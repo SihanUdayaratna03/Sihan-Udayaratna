@@ -317,9 +317,49 @@ const ProjectCard = ({ project, index }: { project: typeof otherProjects[0]; ind
                   </div>
                 ))}
               </motion.div>
-    </motion.div>
-  );
-};
+            )}
+          </AnimatePresence>
+        </div>
+
+        {/* Tech Stack */}
+        <div className="mb-6">
+          <p className="text-[10px] uppercase tracking-[0.2em] text-gray-600 mb-2 font-semibold">Stack</p>
+          <div className="flex flex-wrap gap-1.5">
+            {project.techStack.map((t) => (
+              <TechBadge key={t} label={t} accent={project.accentColor} />
+            ))}
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div className="flex items-center justify-between pt-4 border-t border-white/5">
+          <button
+            onClick={() => setExpanded(!expanded)}
+            className="flex items-center gap-1.5 text-[11px] uppercase tracking-wider font-semibold transition-colors duration-200"
+            style={{ color: project.accentColor }}
+          >
+            <motion.div animate={{ rotate: expanded ? 180 : 0 }} transition={{ duration: 0.3 }}>
+              <ChevronDown size={14} />
+            </motion.div>
+            {expanded ? 'Show Less' : 'View Details'}
+          </button>
+
+          <div className="flex gap-2">
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/10 text-white text-[11px] uppercase tracking-wider hover:border-white/25 hover:bg-white/5 transition-all duration-300"
+              >
+                <GitFork size={12} /> Source
+              </a>
+            )}
+            {project.demo && (
+              <a
+                href={project.demo}
+                target="_blank"
+                rel="noopener noreferrer"
 
 const Projects = () => { return <div>Projects</div>; };
 export default Projects;
