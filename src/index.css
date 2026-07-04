@@ -30,7 +30,7 @@
 }
 
   .project-card {
-    @apply bg-[#080808] border border-white/6 rounded-2xl transition-all duration-500;
+    @apply bg-[#080808] border border-white/5 rounded-2xl transition-all duration-500;
   }
 
   .tech-badge {
