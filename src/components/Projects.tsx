@@ -281,6 +281,42 @@ const ProjectCard = ({ project, index }: { project: typeof otherProjects[0]; ind
         {/* Title & Tagline */}
         <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-2 tracking-wide">
           {project.title}
+        </h3>
+        <p className="text-gray-400 text-xs md:text-sm leading-relaxed font-light mb-6">
+          {project.tagline}
+        </p>
+
+        {/* Feature list - always visible (first 2), rest expand */}
+        <div className="space-y-3 mb-6">
+          {project.features.slice(0, 2).map((f, i) => (
+            <div key={i} className="flex gap-3">
+              <div className="mt-0.5 flex-shrink-0" style={{ color: project.accentColor }}>{f.icon}</div>
+              <div>
+                <p className="text-white text-xs font-semibold mb-0.5">{f.title}</p>
+                <p className="text-gray-500 text-xs leading-relaxed font-light">{f.desc}</p>
+              </div>
+            </div>
+          ))}
+
+          <AnimatePresence>
+            {expanded && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.35, ease: 'easeInOut' }}
+                className="space-y-3 overflow-hidden"
+              >
+                {project.features.slice(2).map((f, i) => (
+                  <div key={i} className="flex gap-3">
+                    <div className="mt-0.5 flex-shrink-0" style={{ color: project.accentColor }}>{f.icon}</div>
+                    <div>
+                      <p className="text-white text-xs font-semibold mb-0.5">{f.title}</p>
+                      <p className="text-gray-500 text-xs leading-relaxed font-light">{f.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </motion.div>
     </motion.div>
   );
 };
