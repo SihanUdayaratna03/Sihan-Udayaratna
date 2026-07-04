@@ -78,6 +78,11 @@ const otherProjects = [
     category: 'Compiler Design · DSL',
     title: 'TaskLang++',
     tagline: 'A custom-built Domain Specific Language for human-readable task scheduling and workflow automation, with a complete compiler pipeline.',
+    github: 'https://lnkd.in/gFTR2iqJ',
+    accentColor: '#4cc9f0',
+  <span
+    className="inline-block px-3 py-1 rounded-full text-[11px] font-medium border tracking-wide"
+    style={{ borderColor: `${accent}40`, color: accent, backgroundColor: `${accent}10` }}
 
 const Projects = () => { return <div>Projects</div>; };
 export default Projects;
