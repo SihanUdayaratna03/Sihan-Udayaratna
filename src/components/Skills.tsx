@@ -82,3 +82,5 @@ const Skills = () => {
 export default Skills;
 
 // feat(skills): add ambient glow to LogoLoop
+
+// feat(skills): setup premium gradient properties
