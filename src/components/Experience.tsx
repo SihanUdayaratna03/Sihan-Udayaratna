@@ -1,21 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase, Users } from 'lucide-react';
-
-const cardStyle: React.CSSProperties = {
-  background: 'rgba(255, 255, 255, 0.03)',
-  border: '1px solid rgba(255, 255, 255, 0.08)',
-  borderRadius: '1.25rem',
-  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.45), 0 1px 0 rgba(255,255,255,0.06) inset',
-  backdropFilter: 'blur(12px)',
-  WebkitBackdropFilter: 'blur(12px)',
-  transition: 'box-shadow 0.3s ease, border-color 0.3s ease',
-};
-
-const cardHoverStyle: React.CSSProperties = {
-  boxShadow: '0 12px 48px rgba(123, 44, 191, 0.18), 0 1px 0 rgba(255,255,255,0.09) inset',
-  borderColor: 'rgba(123, 44, 191, 0.3)',
-};
+import CardSwap, { Card } from './ui/CardSwap';
 
 const iconWrapperStyle: React.CSSProperties = {
   background: 'rgba(255, 255, 255, 0.04)',
@@ -36,20 +22,6 @@ const badgeStyle: React.CSSProperties = {
   letterSpacing: '0.04em',
   whiteSpace: 'nowrap' as const,
 };
-
-const HoverCard = ({ children, style }: { children: React.ReactNode; style?: React.CSSProperties }) => {
-  const [hovered, setHovered] = React.useState(false);
-  return (
-    <div
-      style={{ ...cardStyle, ...(hovered ? cardHoverStyle : {}), ...style }}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      {children}
-    </div>
-  );
-};
-
 
 const Experience = () => {
   const experiences = [
@@ -93,79 +65,77 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 relative">
-      <div className="max-w-4xl mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">EXPERIENCE</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mb-6"></div>
-        </motion.div>
+    <section id="experience" className="py-20 relative overflow-hidden min-h-[700px] flex flex-col justify-center">
+      <div className="max-w-6xl mx-auto px-6 relative z-10 w-full flex flex-col md:flex-row items-center gap-10">
+        
+        {/* Left Side: Title & Description */}
+        <div className="w-full md:w-1/3 mb-16 md:mb-0">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">EXPERIENCE</h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent rounded-full mb-6"></div>
+            <p className="text-gray-400 text-lg">
+              Here is a timeline of my professional journey, highlighting the roles where I've grown and contributed.
+            </p>
+          </motion.div>
+        </div>
 
-        <div className="space-y-6">
-          {experiences.map((exp, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.15 }}
-            >
-              <HoverCard>
-                <div className="p-7 flex flex-col md:flex-row gap-6 relative overflow-hidden">
-                  {/* Subtle corner accent */}
-                  <div
-                    className="absolute top-0 right-0 w-40 h-40 rounded-bl-full pointer-events-none"
-                    style={{ background: `radial-gradient(circle at top right, ${exp.accentColor}12, transparent 70%)` }}
-                  />
+        {/* Right Side: CardSwap */}
+        <div className="w-full md:w-2/3 h-[500px] relative">
+          <CardSwap
+            width={500}
+            height={320}
+            cardDistance={40}
+            verticalDistance={40}
+            delay={4000}
+            pauseOnHover={true}
+          >
+            {experiences.map((exp, idx) => (
+              <Card key={idx} className="flex flex-col gap-4 overflow-hidden shadow-2xl">
+                {/* Subtle corner accent */}
+                <div
+                  className="absolute top-0 right-0 w-40 h-40 rounded-bl-full pointer-events-none"
+                  style={{ background: `radial-gradient(circle at top right, ${exp.accentColor}20, transparent 70%)` }}
+                />
 
-                  {/* Icon */}
-                  <div className="flex-shrink-0 self-start">
+                <div className="flex flex-col md:flex-row gap-4 items-start relative z-10">
+                  <div className="flex-shrink-0 hidden sm:block">
                     <div style={iconWrapperStyle}>
                       {exp.icon}
                     </div>
                   </div>
-
-                  {/* Content */}
-                  <div className="flex-grow min-w-0">
-                    <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-1">
-                      <div>
-                        <h3
-                          className="text-xl md:text-2xl font-bold text-white mb-1 leading-snug"
-                          style={{ letterSpacing: '0.01em' }}
-                        >
-                          {exp.title}
-                        </h3>
-                        <p className="text-sm font-medium" style={{ color: exp.accentColor }}>
-                          {exp.company}
-                        </p>
-                      </div>
-                      <span style={badgeStyle} className="self-start mt-1 md:mt-0 shrink-0">
-                        {exp.type}
-                      </span>
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-1" style={{ letterSpacing: '0.01em' }}>
+                      {exp.title}
+                    </h3>
+                    <p className="text-sm font-medium" style={{ color: exp.accentColor }}>
+                      {exp.company}
+                    </p>
+                    <div className="mt-2 inline-block" style={badgeStyle}>
+                      {exp.type}
                     </div>
-
-                    {exp.details.length > 0 && (
-                      <div className="mt-5 space-y-4 border-t border-white/5 pt-5">
-                        {exp.details.map((detail, dIdx) => (
-                          <div key={dIdx}>
-                            <h4 className="text-white/90 font-semibold mb-1 text-xs tracking-wider uppercase">
-                              {detail.heading}
-                            </h4>
-                            <p className="text-gray-400 text-sm leading-relaxed">{detail.desc}</p>
-                          </div>
-                        ))}
-                      </div>
-                    )}
                   </div>
                 </div>
-              </HoverCard>
-            </motion.div>
-          ))}
+
+                {exp.details.length > 0 && (
+                  <div className="mt-2 space-y-3 border-t border-white/5 pt-3 relative z-10 overflow-auto pr-2 custom-scrollbar">
+                    {exp.details.slice(0, 2).map((detail, dIdx) => (
+                      <div key={dIdx}>
+                        <h4 className="text-white/90 font-semibold mb-1 text-xs tracking-wider uppercase">
+                          {detail.heading}
+                        </h4>
+                        <p className="text-gray-400 text-[0.8rem] leading-relaxed line-clamp-2">{detail.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </Card>
+            ))}
+          </CardSwap>
         </div>
       </div>
     </section>
