@@ -1,26 +1,25 @@
 import { motion } from 'framer-motion';
-import LightRays from './ui/LightRays';
+import Galaxy from './ui/Galaxy';
 
 const Hero = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       
-      {/* LightRays Background */}
+      {/* Galaxy Background */}
       <div className="absolute inset-0 z-0 opacity-80 mix-blend-screen pointer-events-none">
-        <LightRays
-          raysOrigin="top-center"
-          raysColor="#ffffff"
-          raysSpeed={1}
-          lightSpread={0.5}
-          rayLength={3}
-          followMouse={true}
-          mouseInfluence={0.1}
-          noiseAmount={0}
-          distortion={0}
-          className="custom-rays"
-          pulsating={false}
-          fadeDistance={1}
-          saturation={1}
+        <Galaxy 
+          mouseRepulsion={true}
+          mouseInteraction={true}
+          density={1}
+          glowIntensity={0.2}
+          saturation={0}
+          hueShift={140}
+          twinkleIntensity={0.1}
+          rotationSpeed={0.1}
+          repulsionStrength={2}
+          autoCenterRepulsion={0}
+          starSpeed={0.1}
+          speed={1}
         />
       </div>
 
