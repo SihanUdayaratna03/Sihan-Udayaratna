@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Code2, Globe, Database, PenTool, Lightbulb } from 'lucide-react';
 import LogoLoop from './ui/LogoLoop';
+import Folder from './ui/Folder';
 import { 
   SiReact, 
   SiNextdotjs, 
@@ -112,95 +113,46 @@ const Skills = () => {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-24 gap-x-6 pt-16 pb-12">
           {skillCategories.map((category, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="group"
-              style={{
-                background: 'rgba(255,255,255,0.025)',
-                border: '1px solid rgba(255,255,255,0.07)',
-                borderRadius: '1.25rem',
-                backdropFilter: 'blur(14px)',
-                WebkitBackdropFilter: 'blur(14px)',
-                boxShadow: '0 8px 32px rgba(0,0,0,0.4), 0 1px 0 rgba(255,255,255,0.05) inset',
-                transition: 'box-shadow 0.35s ease, border-color 0.35s ease, transform 0.3s ease',
-                padding: '2rem',
-                position: 'relative',
-                overflow: 'hidden',
-              }}
-              whileHover={{
-                y: -6,
-                boxShadow: `0 20px 56px rgba(0,0,0,0.5), 0 0 0 1px ${category.accent}33, 0 1px 0 rgba(255,255,255,0.08) inset`,
-              }}
+              className="flex flex-col items-center justify-end min-h-[220px] group"
             >
-              {/* Ambient top-left gradient blob */}
-              <div
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: '160px',
-                  height: '160px',
-                  background: `radial-gradient(circle at top left, ${category.gradientFrom}, ${category.gradientTo}, transparent 70%)`,
-                  pointerEvents: 'none',
-                  borderRadius: '1.25rem 0 0 0',
-                }}
-              />
-
-              {/* Icon ring */}
-              <div
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  width: '52px',
-                  height: '52px',
-                  borderRadius: '0.875rem',
-                  background: `linear-gradient(135deg, ${category.accent}22, ${category.accent}08)`,
-                  border: `1px solid ${category.accent}30`,
-                  boxShadow: `0 4px 16px ${category.accent}20`,
-                  marginBottom: '1.25rem',
-                  color: category.accent,
-                  transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                }}
-                className="group-hover:scale-110"
-              >
-                {category.icon}
+              <div className="relative mb-6 transform scale-110 hover:z-50 z-10 transition-transform duration-300">
+                {/* Premium ambient glow behind the folder */}
+                <div 
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[160px] h-[160px] rounded-full blur-[50px] opacity-20 pointer-events-none transition-opacity duration-500 group-hover:opacity-40"
+                  style={{ background: category.accent }}
+                />
+                <Folder
+                  size={1.5}
+                  color={category.accent}
+                  items={category.skills.map((skill, sIdx) => {
+                    const logo = techLogos.find(l => l.title === skill || skill.includes(l.title));
+                    const Icon = logo ? logo.node : <Code2 size={20} />;
+                    return (
+                      <div key={sIdx} className="w-full h-full flex flex-col items-center justify-center p-1 text-slate-800">
+                        <div className="mb-1 opacity-90 scale-90 origin-bottom flex items-center justify-center text-xl">
+                          {Icon}
+                        </div>
+                        <span className="text-[9px] font-bold text-center leading-tight">
+                          {skill}
+                        </span>
+                      </div>
+                    );
+                  })}
+                />
               </div>
-
-              {/* Title */}
-              <h3
-                className="text-lg font-semibold mb-4 text-white"
-                style={{ letterSpacing: '0.03em' }}
-              >
-                {category.title}
-              </h3>
-
-              {/* Skill pills */}
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill, sIdx) => (
-                  <span
-                    key={sIdx}
-                    style={{
-                      background: `${category.accent}12`,
-                      border: `1px solid ${category.accent}28`,
-                      color: 'rgba(255,255,255,0.72)',
-                      borderRadius: '9999px',
-                      padding: '0.25rem 0.75rem',
-                      fontSize: '0.72rem',
-                      fontWeight: 500,
-                      letterSpacing: '0.03em',
-                      transition: 'background 0.2s, color 0.2s',
-                    }}
-                  >
-                    {skill}
-                  </span>
-                ))}
+              <div className="flex items-center gap-3 mt-4">
+                <div style={{ color: category.accent }}>{category.icon}</div>
+                <h3 className="text-lg font-semibold text-white tracking-wide">
+                  {category.title}
+                </h3>
               </div>
             </motion.div>
           ))}
