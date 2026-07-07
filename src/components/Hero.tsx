@@ -26,8 +26,8 @@ const Hero = () => {
       </div>
 
       {/* Floating Lanyard Badge */}
-      <div className="absolute top-0 right-0 lg:right-20 w-[400px] h-[100vh] z-30">
-        <Lanyard position={[0, 0, 24]} gravity={[0, -40, 0]} frontImage="/profile.jpg" />
+      <div className="absolute top-0 right-0 lg:right-[20%] xl:right-[25%] w-[400px] lg:w-[500px] h-[100vh] z-30">
+        <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} frontImage="/profile.jpg" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 w-full flex flex-col md:flex-row items-center justify-between">
@@ -56,24 +56,6 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        {/* Right Side: Image */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="md:w-1/2 relative mt-12 md:mt-0 flex justify-center"
-        >
-          {/* Subtle glow behind image */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-primary/20 rounded-full blur-[100px]"></div>
-          
-          <div className="relative w-72 h-96 md:w-80 md:h-[450px] rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl z-10">
-            <img 
-              src="/profile.jpg" 
-              alt="Sihan Udayaratna" 
-              className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-            />
-          </div>
-        </motion.div>
 
       </div>
     </section>
