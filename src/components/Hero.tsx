@@ -1,26 +1,33 @@
 import { motion } from 'framer-motion';
-import Galaxy from './ui/Galaxy';
+import SideRays from './ui/SideRays';
+import Lanyard from './ui/Lanyard';
 
 const Hero = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       
-      {/* Galaxy Background */}
-      <div className="absolute inset-0 z-0 opacity-80 mix-blend-screen pointer-events-none">
-        <Galaxy 
-          mouseRepulsion={true}
-          mouseInteraction={true}
-          density={1}
-          glowIntensity={0.2}
-          saturation={0}
-          hueShift={140}
-          twinkleIntensity={0.1}
-          rotationSpeed={0.1}
-          repulsionStrength={2}
-          autoCenterRepulsion={0}
-          starSpeed={0.1}
-          speed={1}
+
+
+      {/* SideRays Background */}
+      <div className="absolute inset-0 z-0 opacity-60 pointer-events-none">
+        <SideRays
+          speed={2.5}
+          rayColor1="#EAB308"
+          rayColor2="#96c8ff"
+          intensity={2}
+          spread={2}
+          origin="top-right"
+          tilt={0}
+          saturation={1.5}
+          blend={0.75}
+          falloff={1.6}
+          opacity={1.0}
         />
+      </div>
+
+      {/* Floating Lanyard Badge */}
+      <div className="absolute top-0 right-0 lg:right-20 w-[400px] h-[100vh] z-30">
+        <Lanyard position={[0, 0, 24]} gravity={[0, -40, 0]} frontImage="/profile.jpg" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 w-full flex flex-col md:flex-row items-center justify-between">
