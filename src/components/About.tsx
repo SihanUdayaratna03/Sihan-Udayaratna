@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import BlurText from './ui/BlurText';
+import GlareHover from './ui/GlareHover';
 
 const About = () => {
   const education = [
@@ -29,7 +31,13 @@ const About = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16 max-w-3xl mx-auto"
         >
-          <h2 className="text-3xl md:text-4xl font-display font-light mb-6 tracking-widest uppercase">WHO I AM</h2>
+          <BlurText
+            text="WHO I AM"
+            delay={150}
+            animateBy="words"
+            direction="top"
+            className="text-3xl md:text-4xl font-display font-light mb-6 tracking-widest uppercase justify-center"
+          />
           <p className="text-gray-400 leading-relaxed text-sm md:text-base font-light">
             I am a BSc (Hons) Computer Science student at SLIIT with a strong background in Full Stack development and WordPress customization. 
             Deeply interested in Generative AI, LLMs, and UI/UX, I focus on building intuitive, user-centered digital solutions that prioritize operational efficiency.
@@ -45,13 +53,28 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="bg-[#0a0a0a] border border-[#1a1a1a] rounded-2xl p-8 hover:border-[#2a2a2a] transition-colors"
+              className="h-full"
             >
-              <h3 className="text-xl font-display font-semibold mb-2 text-gray-200">{item.institution}</h3>
-              <p className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-4">{item.degree}</p>
-              <p className="text-gray-400 text-sm leading-relaxed font-light">
-                {item.desc}
-              </p>
+              <GlareHover
+                width="100%"
+                height="100%"
+                background="#0a0a0a"
+                borderRadius="1rem"
+                borderColor="#1a1a1a"
+                glareColor="#ffffff"
+                glareOpacity={0.15}
+                glareAngle={-45}
+                glareSize={200}
+                transitionDuration={600}
+              >
+                <div className="p-8 h-full w-full flex flex-col justify-start text-left items-start">
+                  <h3 className="text-xl font-display font-semibold mb-2 text-gray-200">{item.institution}</h3>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-4">{item.degree}</p>
+                  <p className="text-gray-400 text-sm leading-relaxed font-light">
+                    {item.desc}
+                  </p>
+                </div>
+              </GlareHover>
             </motion.div>
           ))}
         </div>
