@@ -2,13 +2,13 @@ import { motion } from 'framer-motion';
 import { Code2, Globe, Database, PenTool, Lightbulb } from 'lucide-react';
 import LogoLoop from './ui/LogoLoop';
 import Folder from './ui/Folder';
-import { 
-  SiReact, 
-  SiNextdotjs, 
-  SiTypescript, 
-  SiTailwindcss, 
-  SiPython, 
-  SiJavascript, 
+import {
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
+  SiPython,
+  SiJavascript,
   SiC,
   SiMysql,
   SiPostgresql,
@@ -31,7 +31,8 @@ const techLogos = [
   { node: <SiMysql />, title: "MySQL" },
   { node: <SiPostgresql />, title: "PostgreSQL" },
   { node: <SiFigma />, title: "Figma" },
-  { node: <SiWordpress />, title: "WordPress" }
+  { node: <SiWordpress />, title: "WordPress" },
+  { node: <span style={{ fontSize: 10, fontWeight: 800, color: '#00C4CC', letterSpacing: '-0.5px' }}>Cv</span>, title: "Canva" }
 ];
 
 const Skills = () => {
@@ -66,7 +67,7 @@ const Skills = () => {
       accent: '#4cc9f0',
       gradientFrom: 'rgba(76,201,240,0.15)',
       gradientTo: 'rgba(76,201,240,0.03)',
-      skills: ["Figma", "WordPress"]
+      skills: ["Figma", "WordPress", "Canva"]
     },
     {
       title: "Soft Skills",
@@ -80,6 +81,15 @@ const Skills = () => {
 
   return (
     <section id="skills" className="py-20 relative bg-surface/50">
+      {/* Glassmorphism overlay */}
+      <div
+        className="absolute inset-0 z-[1] pointer-events-none"
+        style={{
+          background: 'rgba(8, 8, 12, 0.50)',
+          backdropFilter: 'blur(18px)',
+          WebkitBackdropFilter: 'blur(18px)',
+        }}
+      />
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -97,7 +107,7 @@ const Skills = () => {
           <div className="relative mb-20">
             {/* Ambient glow for the logo loop */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/5 rounded-full blur-[60px] pointer-events-none"></div>
-            
+
             <LogoLoop
               logos={techLogos}
               speed={100}
@@ -125,7 +135,7 @@ const Skills = () => {
             >
               <div className="relative mb-6 transform scale-110 hover:z-50 z-10 transition-transform duration-300">
                 {/* Premium ambient glow behind the folder */}
-                <div 
+                <div
                   className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[160px] h-[160px] rounded-full blur-[50px] opacity-20 pointer-events-none transition-opacity duration-500 group-hover:opacity-40"
                   style={{ background: category.accent }}
                 />
