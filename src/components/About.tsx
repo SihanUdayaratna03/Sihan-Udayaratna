@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import BlurText from './ui/BlurText';
 import GlareHover from './ui/GlareHover';
+import LightRays from './ui/LightRays';
 
 const About = () => {
   const education = [
@@ -23,6 +24,30 @@ const About = () => {
 
   return (
     <section id="profile" className="py-32 relative">
+      {/* LightRays background */}
+      <div className="absolute inset-0 z-0">
+        <LightRays
+          raysOrigin="top-center"
+          raysColor="#ffffff"
+          raysSpeed={0.8}
+          lightSpread={0.6}
+          rayLength={1.5}
+          followMouse={true}
+          mouseInfluence={0.08}
+          noiseAmount={0.05}
+          distortion={0.02}
+          fadeDistance={1.2}
+        />
+      </div>
+      {/* Glassmorphism overlay */}
+      <div
+        className="absolute inset-0 z-[1] pointer-events-none"
+        style={{
+          background: 'rgba(8, 8, 12, 0.55)',
+          backdropFilter: 'blur(18px)',
+          WebkitBackdropFilter: 'blur(18px)',
+        }}
+      />
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -38,10 +63,8 @@ const About = () => {
             direction="top"
             className="text-3xl md:text-4xl font-display font-light mb-6 tracking-widest uppercase justify-center"
           />
-          <p className="text-gray-400 leading-relaxed text-sm md:text-base font-light">
-            I am a BSc (Hons) Computer Science student at SLIIT with a strong background in Full Stack development and WordPress customization. 
-            Deeply interested in Generative AI, LLMs, and UI/UX, I focus on building intuitive, user-centered digital solutions that prioritize operational efficiency.
-            A collaborative problem solver, I aim to leverage my technical expertise to deliver scalable and innovative outcomes.
+          <p className="text-gray-400 leading-relaxed text-sm md:text-base font-light text-justify">
+            I am a BSc (Hons) Computer Science student at SLIIT, specializing in Full Stack Development and Artificial Intelligence. Passionate about Generative AI, LLMs, Machine Learning, and RAG systems, I focus on building intelligent, scalable solutions that solve real-world problems. By combining robust software engineering with emerging AI technologies, I aim to deliver impactful applications that drive automation, efficiency, and continuous innovation.
           </p>
         </motion.div>
 
