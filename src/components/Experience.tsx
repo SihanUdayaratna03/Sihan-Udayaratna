@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase, Users } from 'lucide-react';
 import CardSwap, { Card } from './ui/CardSwap';
+import LightRays from './ui/LightRays';
 
 const iconWrapperStyle: React.CSSProperties = {
   background: 'rgba(255, 255, 255, 0.04)',
@@ -66,8 +67,33 @@ const Experience = () => {
 
   return (
     <section id="experience" className="py-20 relative overflow-hidden min-h-[700px] flex flex-col justify-center">
+      {/* LightRays background */}
+      <div className="absolute inset-0 z-0">
+        <LightRays
+          raysOrigin="top-right"
+          raysColor="#ffffff"
+          raysSpeed={0.7}
+          lightSpread={0.65}
+          rayLength={1.4}
+          followMouse={true}
+          mouseInfluence={0.07}
+          noiseAmount={0.04}
+          distortion={0.02}
+          fadeDistance={1.1}
+        />
+      </div>
+      {/* Glassmorphism overlay */}
+      <div
+        className="absolute inset-0 z-[1] pointer-events-none"
+        style={{
+          background: 'rgba(8, 8, 12, 0.55)',
+          backdropFilter: 'blur(18px)',
+          WebkitBackdropFilter: 'blur(18px)',
+        }}
+      />
+
       <div className="max-w-6xl mx-auto px-6 relative z-10 w-full flex flex-col md:flex-row items-center gap-10">
-        
+
         {/* Left Side: Title & Description */}
         <div className="w-full md:w-1/3 mb-16 md:mb-0">
           <motion.div
@@ -77,7 +103,7 @@ const Experience = () => {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">EXPERIENCE</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent rounded-full mb-6"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent rounded-full mb-6" />
             <p className="text-gray-400 text-lg">
               Here is a timeline of my professional journey, highlighting the roles where I've grown and contributed.
             </p>
