@@ -33,7 +33,7 @@ const featuredProject = {
   category: 'Agentic AI · RAG · Knowledge Graphs',
   title: 'Astro AI',
   tagline: 'A multimodal, agent-driven document assistant that maps relationships, reasons across them, and visualizes knowledge through an interactive Knowledge Graph.',
-  github: 'https://lnkd.in/e2mWUkrY',
+  github: 'https://github.com/SihanUdayaratna03/Astro-AI',
   accentColor: '#7b2cbf',
   glowColor: 'rgba(123, 44, 191, 0.15)',
   features: [
@@ -74,11 +74,45 @@ const featuredProject = {
 
 const otherProjects = [
   {
+    id: 'autooracle-ai',
+    category: 'Machine Learning · Full-Stack',
+    title: 'AutoOracle AI',
+    tagline: 'A premium, full-stack Machine Learning pipeline and web application for predicting used car prices, specifically calibrated for the Sri Lankan automotive market.',
+    github: 'https://github.com/SihanUdayaratna03/AutoOracle-AI',
+    accentColor: '#14b8a6',
+    glowColor: 'rgba(20, 184, 166, 0.12)',
+    achievement: null,
+    features: [
+      { icon: <Brain size={16} />, title: 'LLM Training & AI Depreciation', desc: 'Trained and fine-tuned underlying LLMs within Jupyter Notebook environments, alongside Random Forest algorithms acting as complex depreciation engines.' },
+      { icon: <BarChart3 size={16} />, title: 'Sri Lankan Market Adaptation', desc: 'Calibrated historical vehicle data scaled to account for local economic factors, including high import vehicle taxes (3x-4x base value) and LKR conversion rates.' },
+      { icon: <Database size={16} />, title: 'FastAPI Backend', desc: 'A high-performance REST API that serves the trained machine learning model for real-time price predictions.' },
+      { icon: <Layers size={16} />, title: 'Cinematic Frontend UI', desc: 'A premium, responsive web application built with React and Vite to provide users with an intuitive pricing interface.' },
+    ],
+    techStack: ['Python', 'Scikit-Learn', 'FastAPI', 'React', 'Vite', 'Jupyter Notebook', 'LLMs'],
+  },
+  {
+    id: 'bookmatch-ai',
+    category: 'NLP · Semantic Search · AI',
+    title: 'BookMatch-AI',
+    tagline: 'An AI-powered semantic book recommendation system that discovers relevant literature by understanding content and metadata using NLP, LangChain, and Vector Databases.',
+    github: 'https://github.com/SihanUdayaratna03/BookMatch-AI',
+    accentColor: '#3b82f6',
+    glowColor: 'rgba(59, 130, 246, 0.12)',
+    achievement: null,
+    features: [
+      { icon: <Brain size={16} />, title: 'Manually Trained LLM Pipeline', desc: 'Features a manually trained LLM integrated with a robust text preparation pipeline that engineers raw metadata into optimized context for the model.' },
+      { icon: <Network size={16} />, title: 'Semantic Search Engine', desc: 'Uses advanced NLP and vector embeddings to search and recommend books based on concepts, themes, and contextual meaning rather than simple keyword matching.' },
+      { icon: <Layers size={16} />, title: 'LangChain AI Retrieval', desc: 'Orchestrates scalable document processing and AI-powered retrieval workflows utilizing LangChain alongside Vector Databases like Qdrant and FAISS.' },
+      { icon: <Database size={16} />, title: 'Automated Data Cleaning', desc: 'A comprehensive Pandas and NumPy pipeline that handles missing descriptions, removes unnecessary metadata, and extracts precise insights for high-accuracy recommendations.' },
+    ],
+    techStack: ['Python', 'LangChain', 'NLP', 'Qdrant / FAISS', 'Pandas', 'Jupyter Notebook', 'LLMs'],
+  },
+  {
     id: 'tasklang',
     category: 'Compiler Design · DSL',
     title: 'TaskLang++',
     tagline: 'A custom-built Domain Specific Language for human-readable task scheduling and workflow automation, with a complete compiler pipeline.',
-    github: 'https://lnkd.in/gFTR2iqJ',
+    github: 'https://github.com/SihanUdayaratna03/_TaskLang_',
     accentColor: '#4cc9f0',
     glowColor: 'rgba(76, 201, 240, 0.12)',
     achievement: null,
@@ -95,7 +129,7 @@ const otherProjects = [
     category: 'FinTech · AI · Governance',
     title: 'OnYx',
     tagline: 'Smart Accounting & Governance — an AI-powered financial platform solving the manual cheque processing and ledger pain points faced by Sri Lankan SMEs.',
-    github: 'https://lnkd.in/gXyGBmPb',
+    github: 'https://github.com/rishindu973/OnYx-smart-accounting',
     demo: 'https://lnkd.in/gx3TupgE',
     accentColor: '#f59e0b',
     glowColor: 'rgba(245, 158, 11, 0.12)',
@@ -141,6 +175,41 @@ const otherProjects = [
       { icon: <Bot size={16} />, title: 'Real-World Healthcare Impact', desc: 'Applied technical skills to solve a genuine healthcare challenge, bridging embedded systems with software to create a patient-first solution.' },
     ],
     techStack: ['Embedded Systems', 'IoT', 'Real-Time Monitoring', 'Automated Notifications'],
+  },
+  {
+    id: 'mindup',
+    category: 'EdTech · Gamification · Full-Stack',
+    title: 'MindUp',
+    tagline: 'A gamified self-learning platform — "Level Up Your Mind." Built as the Software Engineering module group project, MindUp combines AI-powered learning paths, competitive leaderboards, and a reward system to make personal growth addictive.',
+    github: 'https://github.com/Maheesh09/SE-Project-Demo-Frontend',
+    demo: 'https://www.mindup.lk/',
+    accentColor: '#06b6d4',
+    glowColor: 'rgba(6, 182, 212, 0.12)',
+    achievement: null,
+    features: [
+      { icon: <Brain size={16} />, title: 'AI-Powered Learning Paths', desc: 'Adaptive content delivery powered by AI tailors each user\'s learning journey based on performance, interests, and progress velocity.' },
+      { icon: <Trophy size={16} />, title: 'Gamified Leaderboards & Rewards', desc: 'Competitive XP-based leaderboards and a reward system keep users motivated — turning self-improvement into an engaging, game-like experience.' },
+      { icon: <Layers size={16} />, title: 'Full-Stack Architecture', desc: 'React frontend with a Spring Boot backend, RESTful APIs, and a relational database — built with a full SDLC process as part of the SE module.' },
+      { icon: <BarChart3 size={16} />, title: 'Progress Analytics', desc: 'Detailed dashboards showing learning streaks, skill growth, and completion rates, giving users clear visibility into their development trajectory.' },
+    ],
+    techStack: ['React', 'Spring Boot', 'REST API', 'MySQL', 'Gamification', 'AI Learning'],
+  },
+  {
+    id: 'hivechat',
+    category: 'Distributed Systems · Python · gRPC',
+    title: 'HiveChat',
+    tagline: 'A fault-tolerant distributed messaging system that demonstrates four core distributed computing principles in a single cluster: Fault Tolerance, Data Replication, Raft Consensus, and Time Synchronization — any node can fail, and the system keeps running without losing a single message.',
+    github: 'https://github.com/ShageeshanT/hivechat-demo',
+    accentColor: '#818cf8',
+    glowColor: 'rgba(129, 140, 248, 0.12)',
+    achievement: null,
+    features: [
+      { icon: <Shield size={16} />, title: 'Fault Tolerance', desc: 'SQLite-backed persistence ensures every message survives node restarts. A pending queue drains automatically via the heartbeat recovery path when offline peers rejoin.' },
+      { icon: <Database size={16} />, title: 'Data Replication & Vector Clocks', desc: 'Each message is replicated to all live peers via gRPC. Vector clocks track causal ordering across nodes — the MessageReorderer guarantees causally consistent delivery.' },
+      { icon: <Cpu size={16} />, title: 'Raft Consensus', desc: 'A full Raft implementation (consensus.py) handles leader election and log replication, keeping all nodes in agreement even during network partitions and leader failures.' },
+      { icon: <Activity size={16} />, title: 'Time Synchronization', desc: 'Lamport logical clocks, NTP-style synchronisation, and causal message reordering work in concert so events are globally ordered across a heterogeneous, asynchronous cluster.' },
+    ],
+    techStack: ['Python 3.10+', 'gRPC', 'Protocol Buffers', 'SQLite', 'Raft Consensus', 'Vector Clocks', 'Lamport Clocks'],
   },
 ];
 
@@ -378,7 +447,7 @@ const ProjectCard = ({ project, index }: { project: typeof otherProjects[0]; ind
 ───────────────────────────────────────────── */
 const Projects = () => {
   return (
-    <section id="projects" className="py-32 relative">
+    <section id="projects" className="py-32 relative bg-white/[0.02] backdrop-blur-3xl border-t border-white/[0.05]">
       {/* Ambient background glow */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full blur-[160px] opacity-10"
