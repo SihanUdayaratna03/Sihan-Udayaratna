@@ -6,6 +6,7 @@ import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+
 const menuItems = [
   { label: 'Home', ariaLabel: 'Go to home', link: '#home' },
   { label: 'Profile', ariaLabel: 'View profile', link: '#profile' },
