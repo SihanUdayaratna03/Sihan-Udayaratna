@@ -4,7 +4,7 @@ on:
   schedule:
     # 17:00 UTC == 22:30 Asia/Colombo (UTC+5:30)
     - cron: "0 17 * * *"
-  workflow_dispatch: {}
+  workflow_dispatch: {}   # lets you run it manually from the Actions tab
 
 permissions:
   contents: write
@@ -18,8 +18,10 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TZ: Asia/Colombo
+      # Must be an email verified on your GitHub account, or the commits
+      # will NOT show up on your contribution graph.
       GIT_AUTHOR_NAME: SihanUdayaratna03
-      GIT_AUTHOR_EMAIL: sihanudayaratna92@gmail.com
+      GIT_AUTHOR_EMAIL: it24103532@my.sliit.lk
       MAX_LOG_ENTRIES: "40"
 
     steps:
@@ -37,6 +39,7 @@ jobs:
 
           MARKER="## Activity Log"
 
+          # Make sure README.md exists and has the marker section.
           if [ ! -f README.md ]; then
             printf '# Sihan Udayaratna\n\n' > README.md
           fi
@@ -44,6 +47,7 @@ jobs:
             printf '\n%s\n\n' "$MARKER" >> README.md
           fi
 
+          # Trim the log so the README does not grow forever.
           LINE=$(grep -nxF "$MARKER" README.md | head -1 | cut -d: -f1)
           head -n "$LINE" README.md > /tmp/readme.head
           tail -n +"$((LINE + 1))" README.md | grep '^- ' | tail -n "$MAX_LOG_ENTRIES" > /tmp/readme.log || true
